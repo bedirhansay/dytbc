@@ -14,7 +14,7 @@ const post = {
 
 import { Label } from '@radix-ui/react-label';
 import Image from 'next/image';
-import image from '../../public/85cfbb07505fecab2bc450ecee2d7962 (1).jpg';
+import image from '../../public/meal.webp';
 
 export const Hero = () => {
   return (
