@@ -17,10 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} p-10`}>
-        <div className="flex flex-col h-full gap-8 max-w-7xl mx-auto ">
+      <body className={`${inter.className} p-4`}>
+        <div className="flex flex-col overflow-hidden h-full gap-8 max-w-7xl mx-auto ">
           <Navbar />
-          <div className="px-4 h-full"> {children}</div>
+          <div className=" h-full"> {children}</div>
         </div>
       </body>
     </html>

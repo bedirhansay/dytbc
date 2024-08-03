@@ -1,6 +1,6 @@
 'use client';
 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Filter } from 'lucide-react';
 import { useState } from 'react';
 import { BlogPost } from '../constant/blog-posts';
 import BlogPostCard from './ui/post-card';
@@ -9,31 +9,30 @@ export const Posts = () => {
   const [activeTab, setActiveTab] = useState('view-all');
 
   const tabs = [
-    { name: 'View all', id: 'view-all' },
-    { name: 'Design', id: 'design' },
-    { name: 'Product', id: 'product' },
-    { name: 'Software Engineering', id: 'software-engineering' },
-    { name: 'Customer Success', id: 'customer-success' },
+    { name: 'Tümü', id: 'view-all' },
+    { name: 'Diyet', id: 'healthy-nutrition' },
+    { name: 'Kilo Verme', id: 'weight-loss' },
+    { name: 'Spor', id: 'sports-nutrition' },
   ];
-
   return (
     <div>
-      <div className="flex items-center gap-4  justify-between py-12  border-gray-300">
-        <nav className="flex space-x-4">
+      <div className="flex items-center gap-4 flex-wrap justify-between pt-12 pb-4 border-b">
+        <nav className="flex space-x-4 text-sm whitespace-nowrap flex-wrap ">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`${
                 activeTab === tab.id ? 'text-purple-600 border-purple-600' : 'text-gray-500'
-              } pb-2 border-b-2 font-medium`}
+              }   font-medium`}
             >
               {tab.name}
             </button>
           ))}
         </nav>
         <div className="relative">
-          <Select>
+          <Filter />
+          {/* <Select>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Most recent" />
             </SelectTrigger>
@@ -43,12 +42,12 @@ export const Posts = () => {
                 <SelectItem value="oldest">Oldest</SelectItem>
               </SelectGroup>
             </SelectContent>
-          </Select>
+          </Select> */}
         </div>
       </div>
 
-      <div className="container mx-auto py-12">
-        <div className="grid justify-between grid-cols-[repeat(auto-fill,minmax(315px,1fr))] gap-8">
+      <div className="mx-auto py-12">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(315px,1fr))] justify-center gap-8 ">
           {BlogPost.map((post, index) => (
             <BlogPostCard key={index} post={post} />
           ))}

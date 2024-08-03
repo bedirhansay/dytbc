@@ -9,7 +9,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { Menu } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
@@ -51,10 +53,48 @@ const components = [
 
 export function Navbar() {
   return (
-    <div className="flex justify-between border-b pb-4">
+    <div className="flex justify-between border-b pb-4 list-none">
+      {/* //! Mobile Navbar */}
+      <div className="flex sm:hidden">
+        <Sheet>
+          <SheetTrigger>
+            <Menu />
+          </SheetTrigger>
+          <SheetContent side="left">
+            <SheetHeader>
+              <SheetTitle className="pt-4">Diyetisyen Beyzanur Canel</SheetTitle>
+
+              <NavigationMenu className="flex flex-col justify-start list-none">
+                <NavigationMenuItem>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Ana Sayfa</NavigationMenuLink>
+                  <ul className="flex flex-col gap-3 justify-start  ">
+                    {components.map((component) => (
+                      <ListItem key={component.title} title={component.title} href={component.href}></ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/about" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href="/faq" legacyBehavior passHref>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sık Sorulanlar</NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenu>
+              <SheetDescription></SheetDescription>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </div>
+
+      {/* //! MENU */}
+
       <NavigationMenu>
         <NavigationMenuList>
-          <NavigationMenuItem>
+          <NavigationMenuItem className="hidden sm:flex">
             <Link href="/" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>Ana Sayfa</NavigationMenuLink>
             </Link>
@@ -85,28 +125,30 @@ export function Navbar() {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem key={component.title} title={component.title} href={component.href}>
-                    {component.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/about" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/faq" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sık Sorulanlar</NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
+          <div className="hidden sm:flex">
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {components.map((component) => (
+                    <ListItem key={component.title} title={component.title} href={component.href}>
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/about" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/faq" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Sık Sorulanlar</NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </div>
         </NavigationMenuList>
       </NavigationMenu>
       <div>
