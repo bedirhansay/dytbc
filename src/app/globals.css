@@ -3,31 +3,141 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Background Colors */
+  --nds-background: hsl(0, 0%, 100%);
+  --nds-card: hsl(0, 0%, 100%);
+  --nds-card-dark: hsl(210, 20%, 98%);
+  --nds-popover: hsl(0, 0%, 100%);
+  --nds-muted: hsl(210, 20%, 98%);
+  --nds-accent: hsl(210, 40%, 96.1%);
+
+  /* Foreground Colors */
+  --nds-foreground: hsl(216, 24%, 26%);
+  --nds-foreground-light: hsl(215, 18%, 34%);
+  --nds-card-foreground: hsl(222.2, 84%, 4.9%);
+  --nds-popover-foreground: hsl(222.2, 84%, 4.9%);
+  --nds-muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --nds-accent-foreground: hsl(222.2, 47.4%, 11.2%);
+
+  /* Primary Colors */
+
+  --nds-primary-color: hsl(259, 63%, 60%);
+  --nds-primary-light: hsl(259, 63%, 80%);
+  --nds-primary-dark: hsl(259, 63%, 40%);
+  --nds-primary-foreground: hsl(0, 0%, 96%);
+
+  /* Secondary Colors */
+  --nds-secondary-color: hsl(0, 0%, 100%);
+  --nds-secondary-light: hsl(210, 20%, 98%);
+  --nds-secondary-dark: hsl(210, 20%, 92%);
+  --nds-secondary-foreground: hsl(216, 24%, 26%);
+
+  /* Alternative Colors */
+  --nds-alternative-color: hsl(340, 100%, 97%);
+  --nds-alternative-light: hsl(340, 100%, 90%);
+  --nds-alternative-dark: hsl(340, 100%, 80%);
+  --nds-alternative-foreground: hsl(340, 60%, 50%);
+
+  /* Destructive Colors */
+  --nds-destructive-color: hsl(0, 84.2%, 60.2%);
+  --nds-destructive-light: hsl(0, 84.2%, 80.2%);
+  --nds-destructive-dark: hsl(0, 84.2%, 50.2%);
+  --nds-destructive-foreground: hsl(210, 40%, 98%);
+
+  /* Border, Input, Ring, and Radius */
+  --nds-border: hsl(214.3, 31.8%, 91.4%);
+  --nds-input: hsl(214.3, 31.8%, 91.4%);
+  --nds-ring: hsl(222.2, 84%, 4.9%);
+  --nds-radius: 0.3rem;
+  --nds-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+  /* Additional Colors */
+  --nds-hover: hsl(210, 20%, 98%);
+  --nds-disabled: hsl(225, 20%, 96%);
+
+  /* Typography */
+  --font-size-base: 14px;
+  --font-size-sm: 12px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --line-height-base: 1.5;
+  --line-height-tight: 1.25;
+  --line-height-loose: 1.75;
+
+  /* Spacing */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 40px;
+
+  /* Border and Radius */
+  --border-width: 1px;
+  --border-radius-sm: 2px;
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
+  --border-radius-full: 50%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.dark {
+  /* Background Colors */
+  --nds-background: hsl(222, 41%, 8%);
+  --nds-card: hsl(222.2, 84%, 4.9%);
+  --nds-card-dark: hsl(221, 27%, 12%);
+  --nds-popover: hsl(222.2, 84%, 4.9%);
+  --nds-muted: hsl(217.2, 32.6%, 17.5%);
+  --nds-accent: hsl(217.2, 32.6%, 17.5%);
+
+  /* Foreground Colors */
+  --nds-foreground: hsl(240, 3%, 93%);
+  --nds-foreground-light: hsl(217, 4%, 59%);
+  --nds-card-foreground: hsl(210, 40%, 98%);
+  --nds-popover-foreground: hsl(210, 40%, 98%);
+  --nds-muted-foreground: hsl(215, 20.2%, 65.1%);
+  --nds-accent-foreground: hsl(210, 40%, 98%);
+
+  /* Primary Colors */
+  --nds-primary-color: hsl(356, 94%, 45%);
+  --nds-primary-light: hsl(356, 94%, 65%);
+  --nds-primary-dark: hsl(356, 94%, 40%);
+  --nds-primary-foreground: hsl(0, 0%, 96%);
+
+  /* Secondary Colors */
+  --nds-secondary-color: hsl(221, 27%, 12%);
+  --nds-secondary-light: hsl(221, 27%, 32%);
+  --nds-secondary-dark: hsl(221, 27%, 5%);
+  --nds-secondary-foreground: hsl(225, 4%, 82%);
+
+  /* Alternative Colors */
+  --nds-alternative-color: hsl(340, 100%, 97%);
+  --nds-alternative-light: hsl(340, 100%, 90%);
+  --nds-alternative-dark: hsl(340, 100%, 80%);
+  --nds-alternative-foreground: hsl(340, 60%, 50%);
+
+  /* Destructive Colors */
+  --nds-destructive: hsl(0, 62.8%, 30.6%);
+  --nds-destructive-foreground: hsl(210, 40%, 98%);
+
+  /* Border, Input, Ring, and Radius */
+  --nds-border: hsl(217.2, 32.6%, 17.5%);
+  --nds-input: hsl(217.2, 32.6%, 17.5%);
+  --nds-ring: hsl(212.7, 26.8%, 83.9%);
+
+  /* Additional Colors */
+  --nds-hover: hsl(221, 20%, 15%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  body {
+    @apply bg-background text-foreground;
   }
 }
