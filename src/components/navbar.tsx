@@ -20,6 +20,11 @@ import { Button } from './ui/button';
 
 const components = [
   {
+    title: 'Anasayfa',
+    href: '/',
+    description: 'Customized nutrition plans to meet your dietary needs and goals.',
+  },
+  {
     title: 'Nutrition Plans',
     href: '/nutrition-plans',
     description: 'Customized nutrition plans to meet your dietary needs and goals.',
@@ -66,10 +71,13 @@ export function Navbar() {
 
               <NavigationMenu className="flex flex-col justify-start list-none">
                 <NavigationMenuItem>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Ana Sayfa</NavigationMenuLink>
                   <ul className="flex flex-col gap-3 justify-start  ">
                     {components.map((component) => (
-                      <ListItem key={component.title} title={component.title} href={component.href}></ListItem>
+                      <Link key={component.title} href={component.href} legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                          {component.title}
+                        </NavigationMenuLink>
+                      </Link>
                     ))}
                   </ul>
                 </NavigationMenuItem>
