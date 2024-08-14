@@ -10,7 +10,7 @@ interface BlogPost {
   title: string;
   description: string;
   author: string;
-  date: string;
+  created_date: string;
   tags: string[];
 }
 
@@ -20,7 +20,7 @@ interface BlogPostCardProps {
 
 const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   return (
-    <div className="max-w-sm grid grid-rows-2 bg-white border border-gray-200 rounded-lg shadow-md">
+    <div className="max-w-sm w-full grid grid-rows-2 mx-auto  bg-white border border-gray-200 rounded-lg shadow-md">
       <Link className="max-h-64 relative overflow-hidden" href="/">
         <Image
           objectFit="cover"
@@ -51,7 +51,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
           <Image className="w-14 h-14 rounded-full" src={post.authorImage} alt={post.author} width={40} height={40} />
           <div className="ml-4">
             <p className="text-sm font-medium text-gray-900">{post.author}</p>
-            <p className="text-sm text-gray-500">{post.date}</p>
+            <p className="text-sm text-gray-500">{post.created_date}</p>
           </div>
         </div>
       </div>

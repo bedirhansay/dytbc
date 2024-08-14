@@ -47,7 +47,7 @@ export const Posts = () => {
       </div>
 
       <div className="mx-auto py-12">
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(315px,1fr))] justify-center gap-8 ">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(315px,1fr))] justify-stretch w-full gap-8  ">
           {BlogPost.map((post, index) => (
             <BlogPostCard key={index} post={post} />
           ))}
